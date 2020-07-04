@@ -8,55 +8,42 @@ export default function Problem () {
         motivation: "Lorem ipsum",
         steps: [
             {
-                "question": "What is the problem you aim to solve?",
+                "question": "Who has the problem?",
                 "answerType": "TEXT",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 5
-                },
-                "bestPractice": "bla bla bla"
-            },
-            {
-                "question": "Have you thought about something important?",
-                "answerType": "BOOLEAN",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
                     "companySuccessRateIncrement": 1
                 },
-                "answers": [
+                "bestPractice": [
                     {
-                        "value": "Ja",
-                        "required": true
+                        "url": "https://80000hours.org/",
+                        "description": "Find a problem worth solving:"
                     },
                     {
-                        "value": "Nei",
-                        "required": false
+                        "url": "https://sustainabledevelopment.un.org/?menu=1300",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://hbr.org/2012/09/are-you-solving-the-right-problem",
+                        "description": ""
                     }
                 ]
-            }/*,
+            },
+
             {
-                "question": "Which of the following roles do you have in the team?",
-                "answerType": "MULTI",
+                "question": "Who has the problem?",
+                "answerType": "TEXT",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 3
+                    "companySuccessRateIncrement": 1
                 },
-                "answers": [
+                "bestPractice": [
                     {
-                        "value": "Developer",
-                        "required": true
-                    },
-                    {
-                        "value": "Designer",
-                        "required": true
-                    },
-                    {
-                        "value": "Criminal",
-                        "required": false
+                        "url": "https://blog.hubspot.com/marketing/buyer-persona-definition-under-100-sr?hubs_signup-url=blog.hubspot.com%2Fmarketing%2Fmarket-research-buyers-journey-guide&hubs_signup-cta=null",
+                        "description": "Understand who has the problem to define a high level target group:"
                     }
-                ],
-                "bestPractice": "criminals may not be recommended"
-            }*/
+                ]
+            }
         ]
     };
 
