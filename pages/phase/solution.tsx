@@ -1,5 +1,8 @@
+import React from "react";
+import {Phase} from "../../components/phase";
+
 export default function Solution () {
     return (
-        <div><h1>Solution</h1></div>
+        <Phase name={"Solution"}/>
     )
 }

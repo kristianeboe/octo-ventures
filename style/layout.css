@@ -1,10 +1,49 @@
 .container {
-    padding: 0 0.5rem;
+    max-width:800px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.companyName {
+.companyName h1 {
+    font-size: 42px;
+}
 
+.companyMetrics {
+    display: flex;
+    align-content: stretch;
+}
+
+.companyEvaluation {
+    margin-right: 20px;
+}
+
+.phases {
+    display: flex;
+    margin-top: 20px;
+}
+
+.phases a {
+    text-decoration: none;
+    color: white;
+}
+
+.phase {
+    margin-right: 20px;
+    text-align: center;
+    background-color: green;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    color: white;
+}
+
+.phase:last-child {
+    margin-right: 0;
+}
+
+.phase:hover {
+    cursor: pointer;
 }
