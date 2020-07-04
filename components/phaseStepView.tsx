@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {FormControl, FormControlLabel, Radio, RadioGroup, TextField} from "@material-ui/core";
-import {AnswerType, PhaseStep} from "../utils/interfaces";
+import {Answer, AnswerType, PhaseStep} from "../utils/interfaces";
 import {useCompanyMetrics} from "../utils/useCompanyMetrics";
 import {CompanyMetricContext} from "../layouts/Layout";
 
@@ -22,9 +22,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
 
     function handleBooleanInputChanged(event) {
         setStepAnswer(event.target.value);
-        if(event.target.value === step.question.correctAnswer && !metricsComputed) {
-            makeComputation();
-        } else if (event.target.value !== step.question.correctAnswer && metricsComputed){
+        if(step.answers.find(ans => ans.value === event.target.value && ans.required)) {
+            if (!metricsComputed) {
+                makeComputation();
+            }
+        } else if (metricsComputed){
             reverseComputation();
         }
     }
@@ -43,27 +45,49 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
 
 
 
-    function getBooleanInput(options: string[]) {
+    function getBooleanInput() {
         return (
             <FormControl component={"fieldset"}>
                 <RadioGroup value={stepAnswer} onChange={handleBooleanInputChanged}>
-                    {options.map(option => <FormControlLabel value={option} control={<Radio />} label={option}/>)}
+                    {step.answers.map(answer => <FormControlLabel value={answer.value} control={<Radio />} label={answer.value}/>)}
                 </RadioGroup>
             </FormControl>
         )
     }
 
     function getTextInput() {
-        return <TextField value={stepAnswer} onChange={handleTextFieldChange.bind(this)} fullWidth/>
+        return <TextField value={stepAnswer} onChange={handleTextFieldChange} fullWidth/>
+    }
+
+    function getMultiInput() {
+        return getTextInput();
+    }
+
+    function getFormInput() {
+        switch (step.answerType) {
+            case "BOOLEAN":
+                return getBooleanInput();
+            case "TEXT":
+                return getTextInput();
+            case "MULTI":
+                return getMultiInput();
+            default:
+                return getTextInput();
+        }
     }
 
     return (
         <div className={"phaseStepContainer"}>
-            <div><h2>{step.question.question}</h2></div>
-            <div><p><strong>Motivation: </strong>{step.description}</p></div>
+            <div><h2>{step.question}</h2></div>
             <form>
-                {step.question.type === "BOOLEAN" ? getBooleanInput(step.question.answerOptions) : getTextInput()}
+                {getFormInput()}
             </form>
+            {step.bestPractice &&
+                <div>
+                    <h2>Best practice</h2>
+                    {step.bestPractice?.map(bp => <a href={bp.url} target={"_blank"}>{bp.description}</a>)}
+                </div>
+            }
         </div>
     );
 };

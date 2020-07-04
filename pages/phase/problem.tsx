@@ -8,10 +8,8 @@ export default function Problem () {
         motivation: "Lorem ipsum",
         steps: [
             {
-                "question": {
-                    "question": "What is the problem you aim to solve?",
-                    "type": "TEXT"
-                },
+                "question": "What is the problem you aim to solve?",
+                "answerType": "TEXT",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
                     "companySuccessRateIncrement": 5
@@ -19,27 +17,46 @@ export default function Problem () {
                 "bestPractice": "bla bla bla"
             },
             {
-                "question": {
-                    "question": "Who has the problem?",
-                    "type": "TEXT"
-                },
+                "question": "Have you thought about something important?",
+                "answerType": "BOOLEAN",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
                     "companySuccessRateIncrement": 1
-                }
-            },
+                },
+                "answers": [
+                    {
+                        "value": "Ja",
+                        "required": true
+                    },
+                    {
+                        "value": "Nei",
+                        "required": false
+                    }
+                ]
+            }/*,
             {
-                "question": {
-                    "question": "Blir det bra?",
-                    "type": "BOOLEAN",
-                    "answerOptions": ["Ja", "Nei"],
-                    "correctAnswer": "Ja"
-                },
+                "question": "Which of the following roles do you have in the team?",
+                "answerType": "MULTI",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 1
-                }
-            }
+                    "companySuccessRateIncrement": 3
+                },
+                "answers": [
+                    {
+                        "value": "Developer",
+                        "required": true
+                    },
+                    {
+                        "value": "Designer",
+                        "required": true
+                    },
+                    {
+                        "value": "Criminal",
+                        "required": false
+                    }
+                ],
+                "bestPractice": "criminals may not be recommended"
+            }*/
         ]
     };
 
