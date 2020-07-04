@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import '../style/layout.css'
-import Layout from "../layouts/Layout";
+import 'fontsource-roboto';
+import { Layout } from "../layouts/Layout";
 
 function MyApp({ Component, router, pageProps }: AppProps) {
   if(router.pathname.startsWith('/phase')) {

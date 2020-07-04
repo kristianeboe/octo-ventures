@@ -1,27 +1,45 @@
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+}
+
 .container {
     max-width:800px;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+}
+
+.headerMenu {
+    position: fixed;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .companyName h1 {
     font-size: 42px;
+    text-align: center;
 }
 
 .companyMetrics {
     display: flex;
-    align-content: stretch;
 }
 
-.companyEvaluation {
-    margin-right: 20px;
+.companySuccessRate {
+    margin-left: 20px;
 }
 
 .phases {
     display: flex;
+    justify-content: center;
+    width: 100%;
     margin-top: 20px;
+    margin-bottom:20px;
 }
 
 .phases a {
@@ -46,4 +64,26 @@
 
 .phase:hover {
     cursor: pointer;
+}
+
+.phaseContainer {
+    width: 100%;
+    margin-top: 250px;
+}
+
+.phaseContainer h1 {
+    text-align: center;
+}
+
+.phaseMotivation {
+    text-align: center;
+}
+
+.phaseStepContainer {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.phaseStepContainer:last-child {
+    margin-bottom: 100px;
 }

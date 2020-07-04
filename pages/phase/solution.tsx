@@ -1,8 +1,15 @@
 import React from "react";
-import {Phase} from "../../components/phase";
+import {PhaseView} from "../../components/phaseView";
+import {Phase} from "../../utils/interfaces";
 
 export default function Solution () {
+    const solutionPhase: Phase = {
+        type: "Solution",
+        motivation: "Lorem ipsum",
+        steps: []
+    };
+
     return (
-        <Phase name={"Solution"}/>
+        <PhaseView phase={solutionPhase}/>
     )
-}
+};
