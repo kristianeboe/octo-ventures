@@ -5,7 +5,7 @@ import {Phase} from "../../utils/interfaces";
 export default function Team () {
     const teamPhase: Phase = {
         type: "Team",
-        motivation: "Lorem ipsum",
+        motivation: "\"Coming together is a beginning. Keeping together is progress. Working together is success.\" - Henry Ford",
         steps: [
             {
                 "question": "What are the principles for decision making in your team?",

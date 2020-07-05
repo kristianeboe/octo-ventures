@@ -8,7 +8,7 @@ export const PhaseView: React.FC<{
     return (
         <div className={"phaseContainer"}>
             <div><h1>The {phase.type} phase</h1></div>
-            <div className={"phaseMotivation"}><p><strong>Motivation: </strong>{phase.motivation}</p></div>
+            <div className={"phaseMotivation"}><p>{phase.motivation}</p></div>
 
             {phase.steps.map(step => <PhaseStepView step={step}/>)}
         </div>

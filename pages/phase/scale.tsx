@@ -5,7 +5,7 @@ import {Phase} from "../../utils/interfaces";
 export default function Scale () {
     const scalePhase: Phase = {
         type: "Scale",
-        motivation: "Lorem ipsum",
+        motivation: "\"You will either step forward into growth or you will step back into safety\". - Abraham Maslow",
         steps: [
             {
                 "question": "Do you have access to talent, partners and capital?",

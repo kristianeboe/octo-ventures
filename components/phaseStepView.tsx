@@ -43,8 +43,6 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
         setMetricsComputed(false);
     }
 
-
-
     function getBooleanInput() {
         return (
             <FormControl component={"fieldset"}>
@@ -56,7 +54,7 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     }
 
     function getTextInput() {
-        return <TextField value={stepAnswer} onChange={handleTextFieldChange} fullWidth/>
+        return <TextField value={stepAnswer} onChange={handleTextFieldChange} variant={"outlined"} fullWidth/>
     }
 
     function getMultiInput() {

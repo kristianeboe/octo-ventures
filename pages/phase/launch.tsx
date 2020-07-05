@@ -5,7 +5,7 @@ import {Phase} from "../../utils/interfaces";
 export default function Launch () {
     const launchPhase: Phase = {
         type: "Launch",
-        motivation: "Lorem ipsum",
+        motivation: "\"You cannot be afraid to fail, so do not wait too long to pull the trigger with a product launch.\" - Matt Brezina",
         steps: [
             {
                 "question": "Do you have access to talent, partners and capital?",

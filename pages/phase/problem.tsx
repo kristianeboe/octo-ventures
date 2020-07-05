@@ -5,10 +5,10 @@ import {Phase} from "../../utils/interfaces";
 export default function Problem () {
     const problemPhase: Phase = {
         type: "Problem",
-        motivation: "Lorem ipsum",
+        motivation: "\"Inside of every problem lies an opportunity.\" - Robert Kiyosaki",
         steps: [
             {
-                "question": "Who has the problem?",
+                "question": "What is the problem you aim to solve?",
                 "answerType": "TEXT",
                 "scoringFunction": {
                     "companyValueIncrement": 0,
