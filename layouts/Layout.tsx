@@ -22,8 +22,8 @@ export const Layout: React.FC = ({children}) => {
                 <div className={"headerMenu"}>
                     <div className={"companyName"}><h1>{companyName}</h1></div>
                     <div className={"companyMetrics"}>
-                        <div className={"companyEvaluation"}>Your valuation: {companyEvaluation} NOK</div>
-                        <div className={"companySuccessRate"}>Your success rate: {chanceOfSuccess} %</div>
+                        <div className={"companyEvaluation"}>Company valuation: {companyEvaluation} NOK</div>
+                        <div className={"companySuccessRate"}>Your chance of success: {chanceOfSuccess} %</div>
                     </div>
                     <br/>
                     <div className={"phases"}>
