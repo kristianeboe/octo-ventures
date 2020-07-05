@@ -11,7 +11,7 @@ export const CompanyMetricContext = React.createContext<CompanyMetricsContextPro
 });
 
 export const Layout: React.FC = ({children}) => {
-    let companyName = "Octo";
+    let companyName = "Perigee by Octo Ventures";
 
     const {chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation} = useCompanyMetrics();
 
@@ -29,7 +29,8 @@ export const Layout: React.FC = ({children}) => {
                     <div className={"phases"}>
                         <Link href={"/phase/problem"}><div className={"phase"}>PROBLEM</div></Link>
                         <Link href={"/phase/team"}><div className={"phase"}>TEAM</div></Link>
-                        <Link href={"/phase/solution"}><div className={"phase"}>SOLUTION</div></Link>
+                        <Link href={"/phase/research"}><div className={"phase"}>RESEARCH</div></Link>
+                        <Link href={"/phase/develop"}><div className={"phase"}>DEVELOP</div></Link>
                         <Link href={"/phase/launch"}><div className={"phase"}>LAUNCH</div></Link>
                         <Link href={"/phase/scale"}><div className={"phase"}>SCALE</div></Link>
                     </div>
@@ -42,4 +43,4 @@ export const Layout: React.FC = ({children}) => {
         </CompanyMetricContext.Provider>
 
     );
-}
+};

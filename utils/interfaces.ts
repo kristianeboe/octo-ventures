@@ -1,5 +1,5 @@
 export interface Phase {
-    type: 'Problem' | 'Team' | 'Solution' | 'Launch' | 'Scale',
+    type: 'Problem' | 'Team' | 'Research' | 'Develop' | 'Launch' | 'Scale',
     motivation: string,
     steps: PhaseStep[]
 }
