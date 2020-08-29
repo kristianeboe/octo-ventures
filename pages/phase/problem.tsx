@@ -1,53 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import {PhaseView} from "../../components/phaseView";
 import {Phase} from "../../utils/interfaces";
+import {PhaseContext} from "../../utils/PhaseProvider";
 
 export default function Problem () {
-    const problemPhase: Phase = {
-        type: "Problem",
-        motivation: "\"Inside of every problem lies an opportunity.\" - Robert Kiyosaki",
-        steps: [
-            {
-                "question": "What is the problem you aim to solve?",
-                "answerType": "TEXT",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 1
-                },
-                "bestPractice": [
-                    {
-                        "url": "https://80000hours.org/",
-                        "description": "Find a problem worth solving:"
-                    },
-                    {
-                        "url": "https://sustainabledevelopment.un.org/?menu=1300",
-                        "description": ""
-                    },
-                    {
-                        "url": "https://hbr.org/2012/09/are-you-solving-the-right-problem",
-                        "description": ""
-                    }
-                ]
-            },
 
-            {
-                "question": "Who has the problem?",
-                "answerType": "TEXT",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 1
-                },
-                "bestPractice": [
-                    {
-                        "url": "https://blog.hubspot.com/marketing/buyer-persona-definition-under-100-sr?hubs_signup-url=blog.hubspot.com%2Fmarketing%2Fmarket-research-buyers-journey-guide&hubs_signup-cta=null",
-                        "description": "Understand who has the problem to define a high level target group:"
-                    }
-                ]
-            }
-        ]
-    };
+    const phaseId = "c865a20c-4ad9-484f-909c-43719a670819";
 
-    return (
-        <PhaseView phase={problemPhase}/>
-    )
+    const {phases} = useContext(PhaseContext);
+
+    if (phases[phaseId]) {
+        return <PhaseView phase={phases[phaseId]}/>
+    } else {
+        return <div>
+            Loading...
+        </div>
+    }
 };

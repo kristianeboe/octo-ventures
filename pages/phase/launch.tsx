@@ -1,68 +1,19 @@
 import {PhaseView} from "../../components/phaseView";
-import React from "react";
+import React, {useContext} from "react";
 import {Phase} from "../../utils/interfaces";
+import {PhaseContext} from "../../utils/PhaseProvider";
 
 export default function Launch() {
-    const launchPhase: Phase = {
-        type: "Launch",
-        motivation: "\"You cannot be afraid to fail, so do not wait too long to pull the trigger with a product launch.\" - Matt Brezina",
-        steps: [
 
-            {
-                "question": "Has your team analyzed operational risks and prepared mitigating actions?",
-                "answerType": "BOOLEAN",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 1
-                },
-                "answers": [{
-                    "value": "Yes",
-                    "required": true
-                },
-                    {
-                        "value": "No",
-                        "required": false
-                    }
-                ]
-            },
-            {
-                "question": "Does your team have a viable marketing strategy?",
-                "answerType": "BOOLEAN",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 1
-                },
-                "answers": [{
-                    "value": "Yes",
-                    "required": true
-                },
-                    {
-                        "value": "No",
-                        "required": false
-                    }
-                ]
-            },
-            {
-                "question": "Has your solution been launched successfully?",
-                "answerType": "BOOLEAN",
-                "scoringFunction": {
-                    "companyValueIncrement": 0,
-                    "companySuccessRateIncrement": 2
-                },
-                "answers": [{
-                    "value": "Yes",
-                    "required": true
-                },
-                    {
-                        "value": "No",
-                        "required": false
-                    }
-                ]
-            }
-        ]
-    };
+    const phaseId = "5139c602-4fcc-4b8b-896b-be11bffc1414";
 
-    return (
-        <PhaseView phase={launchPhase}/>
-    )
+    const {phases} = useContext(PhaseContext);
+
+    if (phases[phaseId]) {
+        return <PhaseView phase={phases[phaseId]}/>
+    } else {
+        return <div>
+            Loading...
+        </div>
+    }
 };

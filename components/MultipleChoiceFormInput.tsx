@@ -9,7 +9,6 @@ export const MultipleChoiceFormInput: React.FC<{ answers: Answer[], onAnswerUpda
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
         let newValues = { ...state, [event.target.name]: event.target.checked };
-        console.log(newValues);
         const completed = answers.filter(ans => ans.required && !newValues[ans.value]).length == 0;
         if (completed) {
             onAnswerUpdated(true);
