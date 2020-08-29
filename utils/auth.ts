@@ -7,7 +7,7 @@ const createUser = async (authUser: firebase.User) => {
         id: authUser.uid,
         email: authUser.email,
         name: authUser.displayName || ''
-    })
+    });
 };
 
 export const signInWithGoogle = async () => {
@@ -18,13 +18,12 @@ export const signInWithGoogle = async () => {
             await createUser(result.user);
         }
 
-        Router.push('/phase/problem')
+        await Router.push('/phase/problem');
 
     })
 };
 
-
 export const signOut = async () => {
-    auth.signOut();
-    Router.push('/');
+    await auth.signOut();
+    await Router.push('/');
 };
