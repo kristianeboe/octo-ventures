@@ -25,6 +25,7 @@ export const Layout: React.FC = ({children}) => {
             <div className={"container"}>
                 <div className={"headerMenu"}>
                     <div className={"companyName"}><h1>{companyName}</h1></div>
+                    {user && <div className={"companyName"}><h2>Welcome back, {user.name}</h2></div>}
                     <div className={"companyMetrics"}>
                         <div className={"companyEvaluation"}>Company valuation: {companyEvaluation} NOK</div>
                         <div className={"companySuccessRate"}>Your chance of success: {chanceOfSuccess} %</div>

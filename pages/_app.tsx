@@ -9,15 +9,19 @@ import { UserProvider } from '../utils/UserProvider';
 
 function MyApp({ Component, router, pageProps }: AppProps) {
 
-  if(router.pathname.startsWith('/phase')) {
+
 
     return (<UserProvider>
+      {router.pathname.startsWith('/phase') ? 
             <Layout>
               <Component {...pageProps} />
             </Layout>
+            :
+            <Component {...pageProps} />
+      }
       </UserProvider>)
-  }
-  return <Component {...pageProps} />
+
+
 }
 
 export default MyApp

@@ -1,8 +1,9 @@
-import {useEffect} from "react";
+import {useEffect, useContext} from "react";
 import Router from "next/router";
 import { auth } from '../config/firebase';
 import fire from '../config/firebase';
-import { signInWithGoogle } from '../utils/auth';
+import { signInWithGoogle, signOut } from '../utils/auth';
+import { UserContext } from '../utils/UserProvider';
 
 
 
@@ -12,9 +13,20 @@ export default function Home() {
 //    Router.push("/phase/problem");
 //  }, []);
 
+const {user, firebaseUser} = useContext(UserContext);
+
   return <div>
-    <button onClick={signInWithGoogle} >
+
+    {firebaseUser ? 
+  <button onClick={signOut}>
+  Log out
+</button>    
+    
+  : 
+  <button onClick={signInWithGoogle} >
       Google
     </button>
+  }
+    
   </div>;
 }
