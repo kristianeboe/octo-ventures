@@ -8,7 +8,7 @@ interface CompanyMetrics {
     incrementCompanyEvaluation: (number) => void
 }
 
-export const useCompanyMetrics= (): CompanyMetricsContextProps => {
+export const useCompanyMetrics = (): CompanyMetricsContextProps => {
     let [chanceOfSuccess, setChanceOfSuccess] = useState(10);
     let [companyEvaluation, setCompanyEvaluation] = useState(0);
 

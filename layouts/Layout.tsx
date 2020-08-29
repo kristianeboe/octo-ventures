@@ -2,21 +2,21 @@ import React, {useContext} from "react";
 import Link from "next/link"
 import {useCompanyMetrics} from "../utils/useCompanyMetrics";
 import {CompanyMetricsContextProps} from "../utils/interfaces";
-import { UserContext } from '../utils/UserProvider';
+import {UserContext} from '../utils/UserProvider';
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
-    computeCompanyEvaluation: () => {},
+    computeCompanyEvaluation: () => {
+    },
     chanceOfSuccess: 10,
-    computeChanceOfSuccess: () => {}
+    computeChanceOfSuccess: () => {
+    }
 });
 
 export const Layout: React.FC = ({children}) => {
     let companyName = "Perigee by Octo Ventures";
 
     const {user, firebaseUser} = useContext(UserContext);
-    console.log('firebaseUser', firebaseUser)
-    console.log('user', user)
     const {chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation} = useCompanyMetrics();
 
     return (
@@ -32,12 +32,24 @@ export const Layout: React.FC = ({children}) => {
                     </div>
                     <br/>
                     <div className={"phases"}>
-                        <Link href={"/phase/problem"}><div className={"phase"}>PROBLEM</div></Link>
-                        <Link href={"/phase/team"}><div className={"phase"}>TEAM</div></Link>
-                        <Link href={"/phase/research"}><div className={"phase"}>RESEARCH</div></Link>
-                        <Link href={"/phase/develop"}><div className={"phase"}>DEVELOP</div></Link>
-                        <Link href={"/phase/launch"}><div className={"phase"}>LAUNCH</div></Link>
-                        <Link href={"/phase/scale"}><div className={"phase"}>SCALE</div></Link>
+                        <Link href={"/phase/problem"}>
+                            <div className={"phase"}>PROBLEM</div>
+                        </Link>
+                        <Link href={"/phase/team"}>
+                            <div className={"phase"}>TEAM</div>
+                        </Link>
+                        <Link href={"/phase/research"}>
+                            <div className={"phase"}>RESEARCH</div>
+                        </Link>
+                        <Link href={"/phase/develop"}>
+                            <div className={"phase"}>DEVELOP</div>
+                        </Link>
+                        <Link href={"/phase/launch"}>
+                            <div className={"phase"}>LAUNCH</div>
+                        </Link>
+                        <Link href={"/phase/scale"}>
+                            <div className={"phase"}>SCALE</div>
+                        </Link>
                     </div>
                 </div>
                 <br/>
