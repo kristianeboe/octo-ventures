@@ -4,6 +4,7 @@ import { auth } from '../config/firebase';
 import fire from '../config/firebase';
 import { signInWithGoogle, signOut } from '../utils/auth';
 import { UserContext } from '../utils/UserProvider';
+import { populateDB } from "../utils/firebase_populate";
 
 
 
@@ -27,6 +28,10 @@ const {user, firebaseUser} = useContext(UserContext);
       Google
     </button>
   }
+
+  <button onClick={populateDB}>
+    Populate
+  </button>
     
   </div>;
 }

@@ -825,17 +825,22 @@ const p = {
     ]
 };
 
-let steps = {};
-let phases =  {};
 
-for (const key in p) {
-    phases[key] = [];
-    let phase = p[key];
-    phase.forEach(step => {
-        step.id = uuidv4();
-        steps[step.id] = step;
-        phases[key].push(step.id);
-    });
+export async function populateDB() {
+    let steps = {};
+    let phases =  {};
+    
+    for (const key in p) {
+        phases[key] = [];
+        phases[key].id = uuidv4()
+        let phase = p[key];
+        phase.forEach(step => {
+            step.id = uuidv4();
+            steps[step.id] = step;
+            phases[key].push(step.id);
+        });
+    }
+
 }
 
 //Push steps and phases to firebase
