@@ -29,9 +29,9 @@ const {user, firebaseUser} = useContext(UserContext);
     </button>
   }
 
-  <button onClick={populateDB}>
+  {/* <button onClick={populateDB}>
     Populate
-  </button>
-    
+  </button> */}
+
   </div>;
 }

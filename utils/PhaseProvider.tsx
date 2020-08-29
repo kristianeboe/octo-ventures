@@ -1,0 +1,25 @@
+import  { createContext, useEffect, useState } from "react";
+import { auth, firestore } from '../config/firebase';
+
+export const PhaseContext = createContext<{phases: any}>({ phases: {} });
+
+export const PhaseProvider =  ({ children }) => {
+
+  const [phases, setPhases] = useState([])
+useEffect(() => {
+  firestore.collection('phases').get().then(snapshot => {
+      console.log('loading phases')
+    const p = []
+    snapshot.forEach(doc => {
+      p.push(doc.data())
+    })
+    setPhases(p)
+  })
+}, [])
+
+  return (<PhaseContext.Provider 
+          value={{phases}}>
+            {children}
+    </PhaseContext.Provider>)
+}
+

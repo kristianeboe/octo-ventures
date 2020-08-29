@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import {PhaseView} from "../../components/phaseView";
 import {Phase} from "../../utils/interfaces";
+import { PhaseContext } from '../../utils/PhaseProvider';
 
 export default function Develop () {
     const developPhase: Phase = {
@@ -196,7 +197,20 @@ export default function Develop () {
         ]
     };
 
-    return (
-        <PhaseView phase={developPhase}/>
-    )
+    const {phases} = useContext(PhaseContext)
+    console.log('phases', phases)
+
+    const developP = Object.values(phases).find(p => p.type === "Develop") as Phase | undefined
+console.log(developP)
+
+if(developP) {
+    return <PhaseView phase={developP}/>
+} else {
+    return <div>
+        Loading...
+    </div>
+}
+    
+        
+    
 };

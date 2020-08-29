@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { firestore } from '../config/firebase';
 
 const p = {
     "Develop": [
@@ -487,7 +488,7 @@ const p = {
             ]
         }
     ],
-    "teamSteps": [
+    "Team": [
         {
             "question": "What are the principles for decision making in your team?",
             "answerType": "MULTI",
@@ -826,20 +827,43 @@ const p = {
 };
 
 
-export async function populateDB() {
+export  function populateDB() {
     let steps = {};
     let phases =  {};
     
     for (const key in p) {
-        phases[key] = [];
-        phases[key].id = uuidv4()
-        let phase = p[key];
-        phase.forEach(step => {
-            step.id = uuidv4();
-            steps[step.id] = step;
-            phases[key].push(step.id);
-        });
+        const phaseId = uuidv4()
+        phases[phaseId] = {
+            id: phaseId,
+            name: key,
+            type: key,
+            motivation: '',
+            steps: p[key].reduce((acc, step, stepIndex) => {
+                
+                const stepId = uuidv4()
+                return {
+                    ...acc,
+                    [stepId]: {
+                        id: stepId,
+                        order: stepIndex,
+                        ...step
+                }
+                }
+            }, {})
+        }
+        
+
+       
+
     }
+
+    Promise.all(
+        Object.values(phases).map(async (phase, phaseIndex) => {
+            return firestore.collection('phases').doc(phase.id).set({...phase, order: phaseIndex})
+        })
+    )
+
+    return phases
 
 }
 
