@@ -1,0 +1,55 @@
+[debug] [2020-08-29T09:22:20.604Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T09:22:20.605Z] Command:       /Users/kristian/.nvm/versions/node/v12.10.0/bin/node /usr/local/bin/firebase init
+[debug] [2020-08-29T09:22:20.605Z] CLI Version:   7.12.0
+[debug] [2020-08-29T09:22:20.605Z] Platform:      darwin
+[debug] [2020-08-29T09:22:20.605Z] Node Version:  v12.10.0
+[debug] [2020-08-29T09:22:20.606Z] Time:          Sat Aug 29 2020 11:22:20 GMT+0200 (Central European Summer Time)
+[debug] [2020-08-29T09:22:20.606Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T09:22:20.606Z] 
+[debug] [2020-08-29T09:22:20.614Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-29T09:22:20.614Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/kristian/Developer/perigee
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2020-08-29T09:22:48.102Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-08-29T09:22:48.103Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-08-29T09:22:48.350Z] <<< HTTP RESPONSE 400
+[debug] [2020-08-29T09:22:48.351Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2020-08-29T09:22:49.340Z] <<< HTTP RESPONSE 401
+[debug] [2020-08-29T09:22:49.340Z] <<< HTTP RESPONSE BODY
+[debug] [2020-08-29T09:22:49.341Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2020-08-29T09:22:49.701Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (/Users/kristian/.config/yarn/global/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/Users/kristian/.config/yarn/global/node_modules/firebase-tools/lib/api.js:39:35)
+    at Request.self.callback (/Users/kristian/.config/yarn/global/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:209:13)
+    at Request.EventEmitter.emit (domain.js:476:20)
+    at Request.<anonymous> (/Users/kristian/.config/yarn/global/node_modules/request/request.js:1161:10)
+    at Request.emit (events.js:209:13)
+    at Request.EventEmitter.emit (domain.js:476:20)
+    at IncomingMessage.<anonymous> (/Users/kristian/.config/yarn/global/node_modules/request/request.js:1083:12)
+    at Object.onceWrapper (events.js:298:28)
+    at IncomingMessage.emit (events.js:214:15)
+    at IncomingMessage.EventEmitter.emit (domain.js:476:20)
+    at endReadableNT (_stream_readable.js:1178:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to create Google Cloud project. See firebase-debug.log for more info.

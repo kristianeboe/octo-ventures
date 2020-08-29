@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import Link from "next/link"
 import {useCompanyMetrics} from "../utils/useCompanyMetrics";
 import {CompanyMetricsContextProps} from "../utils/interfaces";
+import { UserContext } from '../utils/UserProvider';
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
@@ -13,6 +14,9 @@ export const CompanyMetricContext = React.createContext<CompanyMetricsContextPro
 export const Layout: React.FC = ({children}) => {
     let companyName = "Perigee by Octo Ventures";
 
+    const {user, firebaseUser} = useContext(UserContext);
+    console.log('firebaseUser', firebaseUser)
+    console.log('user', user)
     const {chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation} = useCompanyMetrics();
 
     return (

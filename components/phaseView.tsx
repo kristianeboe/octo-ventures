@@ -10,7 +10,7 @@ export const PhaseView: React.FC<{
             <div><h1>The {phase.type} phase</h1></div>
             <div className={"phaseMotivation"}><p>{phase.motivation}</p></div>
 
-            {phase.steps.map(step => <PhaseStepView step={step}/>)}
+            {phase.steps.map(step => <PhaseStepView step={step} key={step.question} />)}
         </div>
     )
 };
