@@ -1,10 +1,37 @@
 body {
-    font-family: "Roboto", serif;
+    font-family: Montserrat, "Roboto", serif;
     margin: 0;
+    background: linear-gradient(#FFFFFF, #E1ECF4 25%);
+    /*background: radial-gradient(100% 100% at 50% 0%, #FFFFFF 24.48%, #E1ECF4 100%);*/
+}
+
+.header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header, .container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.logo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.userMenu {
+    display: flex;
+    align-items: center;
+    font-family: Montserrat, "Roboto", serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .container {
-    max-width:800px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -12,9 +39,12 @@ body {
     overflow: hidden;
 }
 
+.container * {
+    color: #001428;
+}
+
 .headerMenu {
     position: fixed;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,10 +61,6 @@ body {
     display: flex;
 }
 
-.companySuccessRate {
-    margin-left: 20px;
-}
-
 .phases {
     display: flex;
     justify-content: center;
@@ -44,19 +70,42 @@ body {
 }
 
 .phases a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: white;
 }
 
-.phase {
-    margin-right: 20px;
-    text-align: center;
-    background-color: green;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    line-height: 100px;
-    color: white;
+.phaseHeader {
+    background-color: white;
+    padding: 20px 40px;
+}
+
+.phaseSelector {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phaseLink a {
+    font-weight: 600;
+    font-size: 10px;
+}
+
+.phaseHeadline {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phaseTitle h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 48px;
+}
+
+.companySuccessRate {
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .phase:last-child {
@@ -69,7 +118,6 @@ body {
 
 .phaseContainer {
     width: 100%;
-    margin-top: 250px;
 }
 
 .phaseContainer h1 {
@@ -81,13 +129,26 @@ body {
 }
 
 .phaseStepContainer {
-    padding: 5px 20px 20px 20px;
+    background-color: white;
+    margin-bottom: 20px
+}
+
+.phaseStepContainer > div {
+    padding: 20px
+}
+
+.phaseStepContainer > div > h3{
+    margin-top: 0;
+}
+
+.bestPracticeContainer {
+    background-color: #F7FAFC;
+}
+
+.bestPracticeLink:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .phaseStepContainer:last-child {
     margin-bottom: 100px;
-}
-
-.phaseStepContainer:nth-child(odd) {
-    background-color: #f6f6f6;
 }

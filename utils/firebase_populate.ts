@@ -859,7 +859,7 @@ export  function populateDB() {
 
     Promise.all(
         Object.values(phases).map(async (phase, phaseIndex) => {
-            return firestore.collection('phases').doc(phase.id).set({...phase, order: phaseIndex})
+            return firestore.collection('phases').doc(phase.id).set({...phase, order: phaseIndex|})
         })
     )
 
