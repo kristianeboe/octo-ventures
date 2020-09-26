@@ -1,34 +1,53 @@
-import {FormControl, FormControlLabel, Radio, RadioGroup, TextField} from "@material-ui/core";
-import React, {useContext, useEffect, useState} from "react";
-import { firestore } from '../config/firebase';
-import {UserContext} from "../utils/UserProvider";
+import {
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@material-ui/core";
+import React, { useContext, useEffect, useState } from "react";
+import { firestore } from "../config/firebase";
+import { UserContext } from "../utils/UserProvider";
+import { useDebouncedInput } from "../utils/genericHooks/debounceHook";
 
-export const TextFormInput: React.FC<{onAnswerUpdated: (boolean) => void, stepId: string}> = ({onAnswerUpdated, stepId}) => {
 
-    const {user, firebaseUser} = useContext(UserContext);
+const useSaveTextAnswer = (userId, stepId,defaultValue) => useDebouncedInput(answer => firestore
+    .collection("users")
+    .doc(userId)
+    .set({ answers: { [stepId]: answer } }, { merge: true }), defaultValue)
 
-    // const initialAnswers = firestore.collection('users').doc(user.id).collection('answers').doc(stepId).
-    const [answer, setAnswer] = useState<any>("");
 
-    useEffect(() => {
-        const initialAnswers = firestore.collection('users').doc(firebaseUser.uid).onSnapshot(docSnapshot => {
-            setAnswer(docSnapshot.data().answers[stepId]);
-        })
-        // console.log(initialAnswers);
-    }, []);
+export const TextFormInput: React.FC<{
+  onAnswerUpdated: (boolean) => void;
+  stepId: string;
 
-    async function handleChange(event) {
-        const newAnswer = event.target.value;
-        setAnswer(newAnswer);
-        if (newAnswer.length > 0) {
-            onAnswerUpdated(true);
-        } else {
-            onAnswerUpdated(false);
-        }
-        await firestore.collection('users').doc(firebaseUser.uid).set({answers: {[stepId]: newAnswer}}, {merge: true})
+}> = ({ onAnswerUpdated, stepId }) => {
+  const { user, firebaseUser } = useContext(UserContext);
+  const initialValue = user?.answers[stepId] || '' 
+
+
+  const {inputText, setInputText} = useSaveTextAnswer(firebaseUser.uid, stepId, initialValue)
+
+
+  function handleChange(event) {
+    console.log("handle lunsj");
+    const newAnswer = event.target.value;
+    setInputText(newAnswer);
+    if (newAnswer.length > 0) {
+      onAnswerUpdated(true);
+    } else {
+      onAnswerUpdated(false);
     }
+  }
 
-    return (
-        <TextField value={answer} onChange={handleChange.bind(this)} variant={"outlined"} fullWidth/>
-    )
+  return (
+    <div style={{ display: "flex" }}>
+      <TextField
+        value={inputText}
+        onChange={handleChange.bind(this)}
+        variant={"outlined"}
+        fullWidth
+      />
+    </div>
+  );
 };

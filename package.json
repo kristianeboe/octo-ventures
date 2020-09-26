@@ -9,12 +9,17 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "add": "^2.0.6",
+    "awesome-debounce-promise": "^2.1.0",
     "firebase": "^7.19.1",
     "fontsource-roboto": "^2.1.4",
     "next": "9.4.4",
     "react": "16.13.1",
+    "react-async-hook": "^3.6.1",
     "react-dom": "16.13.1",
-    "uuid": "^8.3.0"
+    "use-constant": "^1.0.0",
+    "uuid": "^8.3.0",
+    "yarn": "^1.22.5"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",

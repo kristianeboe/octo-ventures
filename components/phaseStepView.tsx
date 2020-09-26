@@ -41,11 +41,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     function getFormInput() {
         switch (step.answerType) {
             case "BOOLEAN":
-                return <BooleanFormInput answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>;
+                return <BooleanFormInput stepId={step.id} answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>;
             case "TEXT":
-                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
+                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id} />;
             case "MULTI":
-                return <MultipleChoiceFormInput answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>
+                return <MultipleChoiceFormInput stepId={step.id} answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>
             default:
                 return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
         }
@@ -54,9 +54,9 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     return (
         <div className={"phaseStepContainer"}>
             <div><h2>{step.question}</h2></div>
-            <form>
+            {user && <form>
                 {getFormInput()}
-            </form>
+            </form>}
             {step.bestPractice &&
                 <div>
                     <h2>Best practice resources</h2>
