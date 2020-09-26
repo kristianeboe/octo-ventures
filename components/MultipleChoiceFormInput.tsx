@@ -2,7 +2,7 @@ import {Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup} f
 import React, {useEffect, useState} from "react";
 import {Answer} from "../utils/interfaces";
 
-export const MultipleChoiceFormInput: React.FC<{ answers: Answer[], onAnswerUpdated: (boolean) => void }> = ({answers, onAnswerUpdated}) => {
+export const MultipleChoiceFormInput: React.FC<{ answers: Answer[], onAnswerUpdated: (boolean) => void, initialValues?: any }> = ({answers, onAnswerUpdated}) => {
 
     const [state, setState] = React.useState(answers.reduce((map, obj)=>(map[obj.value] = false, map),{}));
 

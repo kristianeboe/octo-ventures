@@ -1,7 +1,9 @@
 import {createContext, useEffect, useState} from "react";
 import {auth, firestore} from '../config/firebase';
 
-export const UserContext = createContext<{ user: { id: string, email: string, name: string }, firebaseUser: any }>({
+export const UserContext = createContext<{ user: {
+        answers: any;
+        id: string, email: string, name: string }, firebaseUser: any }>({
     user: null,
     firebaseUser: null
 });

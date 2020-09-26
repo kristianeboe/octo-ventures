@@ -6,13 +6,15 @@ import {CompanyMetricContext} from "../layouts/Layout";
 import {BooleanFormInput} from "./BooleanFormInput";
 import {TextFormInput} from "./TextFormInput";
 import {MultipleChoiceFormInput} from "./MultipleChoiceFormInput";
+import {UserContext} from "../utils/UserProvider";
 
 
 export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
 
-    const [stepAnswer, setStepAnswer] = useState<any>("");
     const {computeChanceOfSuccess, computeCompanyEvaluation} = useContext(CompanyMetricContext);
     const [metricsComputed, setMetricsComputed] = useState<boolean>(false);
+
+    const {user, firebaseUser} = useContext(UserContext);
 
     function makeComputation() {
         computeChanceOfSuccess(step.scoringFunction.companySuccessRateIncrement);
@@ -41,11 +43,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
             case "BOOLEAN":
                 return <BooleanFormInput answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>;
             case "TEXT":
-                return <TextFormInput onAnswerUpdated={handleAnswerUpdated}/>;
+                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
             case "MULTI":
                 return <MultipleChoiceFormInput answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>
             default:
-                return <TextFormInput onAnswerUpdated={handleAnswerUpdated}/>;
+                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
         }
     }
 

@@ -14,22 +14,21 @@ export default function Home() {
 //    Router.push("/phase/problem");
 //  }, []);
 
-const {user, firebaseUser} = useContext(UserContext);
+  const {user, firebaseUser} = useContext(UserContext);
 
   return <div>
+    {firebaseUser ?
+        <button onClick={signOut}>
+          Log out
+        </button>
 
-    {firebaseUser ? 
-  <button onClick={signOut}>
-  Log out
-</button>    
-    
-  : 
-  <button onClick={signInWithGoogle} >
-      Google
-    </button>
-  }
+        :
+        <button onClick={signInWithGoogle}>
+          Google
+        </button>
+    }
 
-  {/* <button onClick={populateDB}>
+    {/* <button onClick={populateDB}>
     Populate
   </button> */}
 

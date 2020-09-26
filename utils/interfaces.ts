@@ -5,6 +5,7 @@ export interface Phase {
 }
 
 export interface PhaseStep {
+    id: string,
     question: string,
     scoringFunction: ScoringFunction,
     answerType: AnswerType,
@@ -34,4 +35,17 @@ export interface CompanyMetricsContextProps {
     computeCompanyEvaluation: (number) => void,
     chanceOfSuccess: number,
     computeChanceOfSuccess: (number) => void
+}
+
+export interface User {
+    answers: UserAnswer,
+    id: string
+}
+
+interface UserAnswer {
+    [key:string]: string | MultipleChoiceAnswer
+}
+
+interface MultipleChoiceAnswer {
+    [key:string]: boolean
 }

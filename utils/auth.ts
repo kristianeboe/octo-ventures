@@ -6,7 +6,8 @@ const createUser = async (authUser: firebase.User) => {
     return firestore.collection('users').doc(authUser.uid).set({
         id: authUser.uid,
         email: authUser.email,
-        name: authUser.displayName || ''
+        name: authUser.displayName || '',
+        answers: {}
     });
 };
 
