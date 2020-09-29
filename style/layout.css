@@ -1,10 +1,12 @@
-.app {
-    background: linear-gradient(#FFFFFF, #E1ECF4 25%);
+body, html {
+    height: 100%;
 }
 
 body {
     font-family: Montserrat, "Roboto", serif;
     margin: 0;
+    background: linear-gradient(#FFFFFF, #E1ECF4 25%);
+    background-attachment: fixed;
     /*background: radial-gradient(100% 100% at 50% 0%, #FFFFFF 24.48%, #E1ECF4 100%);*/
 }
 
