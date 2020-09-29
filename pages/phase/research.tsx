@@ -5,7 +5,7 @@ import {PhaseContext} from "../../utils/PhaseProvider";
 
 export default function Research () {
 
-    const phaseId = "982a762e-01d0-49a4-89bd-e066ae0a1e72";
+    const phaseId = "8d4baaeb-1b3c-4ab1-ac9f-4c65a7a55424";
 
     const {phases} = useContext(PhaseContext);
 

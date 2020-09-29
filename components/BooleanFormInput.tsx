@@ -38,12 +38,12 @@ export const BooleanFormInput: React.FC<{
   return (
     <FormControl component={"fieldset"}>
       <RadioGroup value={answer} onChange={handleChange}>
-        {answers.map((answer, id) => (
+        {answers?.map((ans, id) => (
           <FormControlLabel
             key={id}
-            value={answer.value}
+            value={ans.value}
             control={<Radio />}
-            label={answer.value}
+            label={ans.value}
           />
         ))}
       </RadioGroup>

@@ -1,7 +1,9 @@
 export interface Phase {
     type: 'Problem' | 'Team' | 'Research' | 'Develop' | 'Launch' | 'Scale',
     motivation: string,
-    steps: PhaseStep[]
+    steps: PhaseStep[],
+    id: string,
+    name: string
 }
 
 export interface PhaseStep {
@@ -10,7 +12,8 @@ export interface PhaseStep {
     scoringFunction: ScoringFunction,
     answerType: AnswerType,
     answers?: Answer[],
-    bestPractice?: BestPractice[]
+    bestPractice?: BestPractice[],
+    order?: number
 }
 
 interface BestPractice {

@@ -5,7 +5,7 @@ import {PhaseContext} from "../../utils/PhaseProvider";
 
 export default function Team () {
 
-    const phaseId = "3dae4c85-eba6-400f-8461-414159ff038d";
+    const phaseId = "9bcc5287-121d-4650-8c56-7dfa408a759c";
 
     const {phases} = useContext(PhaseContext);
 

@@ -20,7 +20,7 @@ export const PhaseView: React.FC<{
                     <div className={"phaseLink"}><Link href={"/phase/scale"}><a>6. Scale the company</a></Link></div>
                 </div>
                 <div className={"phaseHeadline"}>
-                    <div className={"phaseTitle"}><h2>The {phase.type} phase</h2></div>
+                    <div className={"phaseTitle"}><h2>{phase.name}</h2></div>
                     <div className={"companySuccessRate"}>Estimated chance of success: {chanceOfSuccess} %</div>
                 </div>
             </div>
