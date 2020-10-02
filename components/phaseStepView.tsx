@@ -62,7 +62,8 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
             {step.bestPractice &&
                 <div className={"bestPracticeContainer"}>
                     <h3>Best practice resources</h3>
-                    {step.bestPractice?.map((bp, id) => <div className={"bestPracticeLink"} key={id}><a href={bp.url} target={"_blank"}>{bp.description || bp.url}</a></div>)}
+                    <div className={"bestPracticeDescription"}>{step.bestPractice.description}</div>
+                    {step.bestPractice.urls.map((url, id) => <div className={"bestPracticeLink"} key={id}><a href={url} target={"_blank"}>{url}</a></div>)}
                 </div>
             }
         </div>

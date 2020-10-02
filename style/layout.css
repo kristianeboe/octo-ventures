@@ -150,8 +150,8 @@ body {
     background-color: #F7FAFC;
 }
 
-.bestPracticeLink:not(:last-child) {
-    margin-bottom: 10px;
+.bestPracticeLink {
+    margin-top: 10px;
 }
 
 .phaseStepContainer:last-child {

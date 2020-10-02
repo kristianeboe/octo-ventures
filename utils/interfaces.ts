@@ -12,12 +12,12 @@ export interface PhaseStep {
     scoringFunction: ScoringFunction,
     answerType: AnswerType,
     answers?: Answer[],
-    bestPractice?: BestPractice[],
+    bestPractice?: BestPractice,
     order?: number
 }
 
 interface BestPractice {
-    url: string,
+    urls: string[],
     description: string
 }
 
