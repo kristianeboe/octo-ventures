@@ -38,3 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 * Integrate links into best practice text - ?
 * Logout button - ?
 * Login and usage metrics from users
+
+## Bugs
+* New user -> login with google: gets rerouted to phase view without user set (has to refresh to see input fields)
+* Changing input values, change to another phase and back, changes not visible in input field. Have to reload to get changes.
