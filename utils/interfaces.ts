@@ -46,6 +46,10 @@ export interface User {
     name: string;
     answers: UserAnswer[],
     id: string
+    email: string;
+    sessions: {
+        [day: string]: number;
+    };
 }
 
 interface UserAnswer {

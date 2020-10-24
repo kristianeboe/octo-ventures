@@ -1,17 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { auth, firestore } from "../config/firebase";
 import { useRouter } from "next/router";
+import {User} from "firebase";
 
 export const UserContext = createContext<{
-  user: {
-    answers: any;
-    id: string;
-    email: string;
-    name: string;
-    sessions: {
-      [day: string]: number;
-    };
-  };
+  user: User
   firebaseUser: any;
 }>({
   user: null,
