@@ -49,7 +49,7 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
         let returnHTML = [];
         for(let i = 0; i < descArr.length; i++){
             if(i % 2 != 0){
-                returnHTML.push(<a target="_blank" href="{urlList[i]}">{descArr[i]}</a>);
+                returnHTML.push(<a target="_blank" href={urlList[i]}>{descArr[i]}</a>);
             }else{
                 returnHTML.push(<span>{descArr[i]}</span>);
             }
