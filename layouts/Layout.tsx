@@ -1,16 +1,10 @@
-import React, {useContext} from "react";
-import Link from "next/link"
+import React, {useContext, useEffect} from "react";
 import {useCompanyMetrics} from "../utils/useCompanyMetrics";
 import {CompanyMetricsContextProps} from "../utils/interfaces";
 import {UserContext} from '../utils/UserProvider';
 import {PerigeeLogo} from "./PerigeeLogo";
-import {useEffect} from "react";
 import {hotjar} from "react-hotjar";
-<<<<<<< HEAD
-=======
 import {signOut} from "../utils/auth";
-import Router from "next/router";
->>>>>>> fe6b1b91e5673593ce0cad64b61daed87973f161
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     chanceOfSuccess: 10,
@@ -36,10 +30,8 @@ export const Layout: React.FC = ({children}) => {
     } = useCompanyMetrics();
 
     let onLogOut = async () => {
-
         await signOut();
     };
-
 
     return (
         <CompanyMetricContext.Provider
@@ -60,6 +52,5 @@ export const Layout: React.FC = ({children}) => {
                 }
             </div>
         </CompanyMetricContext.Provider>
-
     );
 };
