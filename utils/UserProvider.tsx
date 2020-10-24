@@ -1,5 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import {auth, firestore} from '../config/firebase';
+import { useRouter } from 'next/router'
 
 export const UserContext = createContext<{ user: {
         answers: any;
@@ -11,6 +12,7 @@ export const UserContext = createContext<{ user: {
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [firebaseUser, setFirebaseUser] = useState(null);
+    const router = useRouter()
 
     useEffect(() => {
         auth.onAuthStateChanged((authUser) => {
@@ -21,6 +23,8 @@ export const UserProvider = ({children}) => {
                 })
             } else {
                 setUser(null);
+                router.push('/')
+
             }
         });
     }, []);

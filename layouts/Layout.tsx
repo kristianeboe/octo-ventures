@@ -6,6 +6,7 @@ import {UserContext} from '../utils/UserProvider';
 import {PerigeeLogo} from "./PerigeeLogo";
 import {useEffect} from "react";
 import {hotjar} from "react-hotjar";
+import { signOut } from '../utils/auth';
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
@@ -40,7 +41,7 @@ export const Layout: React.FC = ({children}) => {
                 <div className={"logo"}>
                     <PerigeeLogo/>
                 </div>
-                <div className={"userMenu"}>
+                <div className={"userMenu"} onClick={signOut}>
                     <h3>Welcome back{user && `, ${user.name}`}!</h3>
                 </div>
             </div>

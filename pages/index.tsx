@@ -21,7 +21,6 @@ export default function Home() {
         <button onClick={signOut}>
           Log out
         </button>
-
         :
         <button onClick={signInWithGoogle}>
           Google
