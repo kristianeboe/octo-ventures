@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import {auth, firestore} from '../config/firebase';
+import {firestore} from '../config/firebase';
 
 export const PhaseContext = createContext<{ phases: any }>({phases: {}});
 

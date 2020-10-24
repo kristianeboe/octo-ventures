@@ -22,8 +22,8 @@ export const UserProvider = ({children}) => {
                     setUser(doc.data());
                 })
             } else {
-                setUser(null);
                 router.push('/')
+                setUser(null);
 
             }
         });

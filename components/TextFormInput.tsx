@@ -1,20 +1,14 @@
-import {
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  TextField,
-} from "@material-ui/core";
-import React, { useContext, useEffect, useState } from "react";
-import { firestore } from "../config/firebase";
-import { UserContext } from "../utils/UserProvider";
-import { useDebouncedInput } from "../utils/genericHooks/debounceHook";
+import {TextField,} from "@material-ui/core";
+import React, {useContext} from "react";
+import {firestore} from "../config/firebase";
+import {UserContext} from "../utils/UserProvider";
+import {useDebouncedInput} from "../utils/genericHooks/debounceHook";
 
 
 const useSaveTextAnswer = (userId, stepId,defaultValue) => useDebouncedInput(answer => firestore
     .collection("users")
     .doc(userId)
-    .set({ answers: { [stepId]: answer } }, { merge: true }), defaultValue)
+    .set({ answers: { [stepId]: answer } }, { merge: true }), defaultValue);
 
 
 export const TextFormInput: React.FC<{
@@ -23,10 +17,10 @@ export const TextFormInput: React.FC<{
 
 }> = ({ onAnswerUpdated, stepId }) => {
   const { user, firebaseUser } = useContext(UserContext);
-  const initialValue = user?.answers[stepId] || '' 
+  const initialValue = user?.answers[stepId] || '';
 
 
-  const {inputText, setInputText} = useSaveTextAnswer(firebaseUser.uid, stepId, initialValue)
+  const {inputText, setInputText} = useSaveTextAnswer(firebaseUser?.uid, stepId, initialValue);
 
 
   function handleChange(event) {

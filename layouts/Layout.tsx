@@ -6,7 +6,8 @@ import {UserContext} from '../utils/UserProvider';
 import {PerigeeLogo} from "./PerigeeLogo";
 import {useEffect} from "react";
 import {hotjar} from "react-hotjar";
-import { signOut } from '../utils/auth';
+import {signOut} from "../utils/auth";
+import Router from "next/router";
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
@@ -34,6 +35,12 @@ export const Layout: React.FC = ({children}) => {
         computeCompanyEvaluation,
     } = useCompanyMetrics();
 
+    let onLogOut = async () => {
+
+        await signOut();
+    };
+
+
     return (
         <CompanyMetricContext.Provider
             value={{chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation}}>
@@ -41,9 +48,10 @@ export const Layout: React.FC = ({children}) => {
                 <div className={"logo"}>
                     <PerigeeLogo/>
                 </div>
-                <div className={"userMenu"} >
-                    <h3>Welcome back{user && `, ${user.name}`}!</h3>
-                </div>
+                {user && <div className={"userMenu"}>
+                    <p>Welcome back {user.name}!</p>
+                    <a onClick={onLogOut}>Log out</a>
+                </div>}
             </div>
             <div className={"container"}>
                 <br/>
