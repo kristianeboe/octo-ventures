@@ -1,3 +1,7 @@
+export interface Phases {
+    [key:string] : Phase
+}
+
 export interface Phase {
     type: 'Problem' | 'Team' | 'Research' | 'Develop' | 'Launch' | 'Scale',
     motivation: string,
@@ -29,19 +33,18 @@ export interface Answer {
 export type AnswerType = "BOOLEAN" | "TEXT" | "MULTI";
 
 interface ScoringFunction {
-    companyValueIncrement: number,
     companySuccessRateIncrement: number
 }
 
 export interface CompanyMetricsContextProps {
-    companyEvaluation: number,
-    computeCompanyEvaluation: (number) => void,
     chanceOfSuccess: number,
     computeChanceOfSuccess: (number) => void
+    initializeChanceOfSuccess: (number) => void
 }
 
 export interface User {
-    answers: UserAnswer,
+    name: string;
+    answers: UserAnswer[],
     id: string
 }
 
@@ -50,5 +53,5 @@ interface UserAnswer {
 }
 
 interface MultipleChoiceAnswer {
-    [key:string]: boolean
+    [key:string]: string[]
 }

@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
             .update({
               [`sessions.${todayDate}`]: 1,
             });
-        } 
+        }
 
         firestore
           .collection("users")

@@ -33,12 +33,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 * Redirect to login if no active session - COMPLETED
 * Redirect to phase view upon login - COMPLETED
 * Landing page with login - COMPLETED
-* Calculate chance of success upon opening app - Kenneth/Kristian
-* Increment/decrement success chance upon answer changed - Kenneth
+* Calculate chance of success upon opening app - COMPLETED
+* Increment/decrement success chance upon answer changed - COMPLETED
 * Integrate links into best practice text - COMPLETED
 * Logout button - COMPLTETED
 * Login and usage metrics from users
 
 ## Bugs
-* New user -> login with google: gets rerouted to phase view without user set (has to refresh to see input fields)
-* Changing input values, change to another phase and back, changes not visible in input field. Have to reload to get changes.
+* New user -> login with google: gets rerouted to phase view without user set (has to refresh to see input fields) - COMPLETED
+* Changing input values, change to another phase and back, changes not visible in input field. Have to reload to get changes. - COMPLETED
+* Unable to save cleared text input fields to firestore

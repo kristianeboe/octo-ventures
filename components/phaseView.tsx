@@ -3,11 +3,14 @@ import {Phase} from "../utils/interfaces";
 import {PhaseStepView} from "./phaseStepView";
 import Link from "next/link";
 import {useCompanyMetrics} from "../utils/useCompanyMetrics";
+import {useContext} from "react";
+import {CompanyMetricContext} from "../layouts/Layout";
 
 export const PhaseView: React.FC<{
     phase: Phase
 }> = ({phase}) => {
-    let {chanceOfSuccess} = useCompanyMetrics();
+    let {chanceOfSuccess} = useContext(CompanyMetricContext);
+
     return (
         <div className={"phaseContainer"}>
             <div className={"phaseHeader"}>

@@ -3,9 +3,7 @@ import {CompanyMetricsContextProps} from "./interfaces";
 
 interface CompanyMetrics {
     chanceOfSuccess: number,
-    incrementChanceOfSuccess: (number) => void,
-    companyEvaluation: number,
-    incrementCompanyEvaluation: (number) => void
+    incrementChanceOfSuccess: (number) => void
 }
 
 export const useCompanyMetrics = (): CompanyMetricsContextProps => {
@@ -16,9 +14,9 @@ export const useCompanyMetrics = (): CompanyMetricsContextProps => {
         setChanceOfSuccess(Math.min(Math.max(chanceOfSuccess + delta, 0), 100));
     };
 
-    const computeCompanyEvaluation = (delta: number) => {
-        setCompanyEvaluation(Math.max(companyEvaluation + delta, 0));
+    const initializeChanceOfSuccess = (value: number) => {
+        setChanceOfSuccess(value);
     };
 
-    return {chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation};
+    return {chanceOfSuccess, computeChanceOfSuccess, initializeChanceOfSuccess};
 };

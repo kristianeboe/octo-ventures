@@ -9,7 +9,7 @@ import {UserContext} from "../utils/UserProvider";
 
 export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
 
-    const {computeChanceOfSuccess, computeCompanyEvaluation} = useContext(CompanyMetricContext);
+    const {computeChanceOfSuccess} = useContext(CompanyMetricContext);
     const [metricsComputed, setMetricsComputed] = useState<boolean>(false);
 
     const {user, firebaseUser} = useContext(UserContext);

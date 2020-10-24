@@ -13,12 +13,10 @@ import Router from "next/router";
 >>>>>>> fe6b1b91e5673593ce0cad64b61daed87973f161
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
-    companyEvaluation: 0,
-    computeCompanyEvaluation: () => {
-    },
     chanceOfSuccess: 10,
     computeChanceOfSuccess: () => {
     },
+    initializeChanceOfSuccess: () =>{}
 });
 
 export const Layout: React.FC = ({children}) => {
@@ -30,12 +28,11 @@ export const Layout: React.FC = ({children}) => {
         }
     }, []);
 
-    const {user, firebaseUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const {
         chanceOfSuccess,
         computeChanceOfSuccess,
-        companyEvaluation,
-        computeCompanyEvaluation,
+        initializeChanceOfSuccess
     } = useCompanyMetrics();
 
     let onLogOut = async () => {
@@ -46,7 +43,7 @@ export const Layout: React.FC = ({children}) => {
 
     return (
         <CompanyMetricContext.Provider
-            value={{chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation}}>
+            value={{chanceOfSuccess, computeChanceOfSuccess, initializeChanceOfSuccess}}>
             <div className={"header"}>
                 <div className={"logo"}>
                     <PerigeeLogo/>

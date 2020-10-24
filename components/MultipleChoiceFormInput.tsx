@@ -32,7 +32,7 @@ export const MultipleChoiceFormInput: React.FC<{ answers: Answer[], onAnswerUpda
             <FormGroup>
                 {answers.map((ans, id) => <FormControlLabel
                     key={id}
-                    control={<Checkbox checked={state[ans.value]} onChange={handleChange} name={ans.value}/>}
+                    control={<Checkbox checked={!!state[ans.value]} onChange={handleChange} name={ans.value}/>}
                     label={ans.value}
                 />)}
             </FormGroup>
