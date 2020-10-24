@@ -6,7 +6,6 @@ import {UserContext} from '../utils/UserProvider';
 import {PerigeeLogo} from "./PerigeeLogo";
 import {useEffect} from "react";
 import {hotjar} from "react-hotjar";
-import { signOut } from '../utils/auth';
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
