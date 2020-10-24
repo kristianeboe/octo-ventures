@@ -49,7 +49,7 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
         let returnHTML = [];
         for(let i = 0; i < descArr.length; i++){
             if(i % 2 != 0){
-                returnHTML.push(<a target="_blank" href={urlList[i]}>{descArr[i]}</a>);
+                returnHTML.push(<a className="best_practice_link" target="_blank" href={urlList[i]}>{descArr[i]}</a>);
             }else{
                 returnHTML.push(<span>{descArr[i]}</span>);
             }
@@ -82,7 +82,7 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
                 <div className={"bestPracticeContainer"}>
                     <h3>Best practice resources</h3>
                     <div className={"bestPracticeDescription"}>{formatBestPracticeDescription(step.bestPractice.description, step.bestPractice.urls)}</div>
-                    {/* {step.bestPractice.urls.map((url, id) => <div className={"bestPracticeLink"} key={id}><a href={url} target={"_blank"}>{url}</a></div>)} */}
+                    {step.bestPractice.urls.map((url, id) => <div className={"bestPracticeLink"} key={id}><a href={url} target={"_blank"}>{url}</a></div>)}
                 </div>
             }
         </div>

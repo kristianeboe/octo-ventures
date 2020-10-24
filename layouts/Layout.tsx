@@ -41,7 +41,7 @@ export const Layout: React.FC = ({children}) => {
                 <div className={"logo"}>
                     <PerigeeLogo/>
                 </div>
-                <div className={"userMenu"} onClick={signOut}>
+                <div className={"userMenu"} >
                     <h3>Welcome back{user && `, ${user.name}`}!</h3>
                 </div>
             </div>

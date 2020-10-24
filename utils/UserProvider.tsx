@@ -18,7 +18,7 @@ export const UserProvider = ({children}) => {
         auth.onAuthStateChanged((authUser) => {
             setFirebaseUser(authUser);
             if (authUser) {
-                firestore.collection('users').doc(authUser.uid).get().then(doc => {
+                firestore.collection('users').doc(authUser.uid).onSnapshot(doc => {
                     setUser(doc.data());
                 })
             } else {
