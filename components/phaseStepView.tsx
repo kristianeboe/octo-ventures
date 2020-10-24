@@ -1,7 +1,5 @@
 import React, {useContext, useState} from "react";
-import {Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, TextField} from "@material-ui/core";
-import {Answer, AnswerType, PhaseStep} from "../utils/interfaces";
-import {useCompanyMetrics} from "../utils/useCompanyMetrics";
+import {PhaseStep} from "../utils/interfaces";
 import {CompanyMetricContext} from "../layouts/Layout";
 import {BooleanFormInput} from "./BooleanFormInput";
 import {TextFormInput} from "./TextFormInput";
@@ -18,13 +16,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
 
     function makeComputation() {
         computeChanceOfSuccess(step.scoringFunction.companySuccessRateIncrement);
-        computeCompanyEvaluation(step.scoringFunction.companyValueIncrement);
         setMetricsComputed(true)
     }
 
     function reverseComputation() {
         computeChanceOfSuccess(-1 * step.scoringFunction.companySuccessRateIncrement);
-        computeCompanyEvaluation(-1 * step.scoringFunction.companyValueIncrement);
         setMetricsComputed(false);
     }
 
@@ -49,9 +45,9 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
         let returnHTML = [];
         for(let i = 0; i < descArr.length; i++){
             if(i % 2 != 0){
-                returnHTML.push(<a className="best_practice_link" target="_blank" href={urlList[i]}>{descArr[i]}</a>);
+                returnHTML.push(<a key={i} className="best_practice_link" target="_blank" href={urlList[i]}>{descArr[i]}</a>);
             }else{
-                returnHTML.push(<span>{descArr[i]}</span>);
+                returnHTML.push(<span key={i}>{descArr[i]}</span>);
             }
         }
         return returnHTML;

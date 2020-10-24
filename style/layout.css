@@ -29,11 +29,17 @@ body {
 
 .userMenu {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     font-family: Montserrat, "Roboto", serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
+}
+
+.userMenu a:hover {
+    cursor: pointer;
 }
 
 .container {
@@ -46,6 +52,64 @@ body {
 
 .container * {
     color: #001428;
+}
+
+.landingPage {}
+
+.presentation {
+    display: flex;
+}
+
+.workshopPhoto {
+    margin-right: 60px;
+}
+
+.salesPitch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.getStartedButton {
+    /* button ct */
+
+    /* Auto Layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 0px 0px 20px;
+
+    width: 138px;
+    height: 56px;
+
+    /* CT Color */
+    background: #001428;
+
+
+
+    /* P Bold */
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    /* identical to box height, or 200% */
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    align-self: center;
+    flex-grow: 0;
+    margin: 10px 0px;
+
+}
+
+.getStartedButton:hover {
+    cursor: pointer;
 }
 
 .headerMenu {

@@ -11,20 +11,19 @@ const createUser = async (authUser: firebase.User) => {
     });
 };
 
-export const signInWithGoogle = async () => {
+export const signInWithGoogle = async (redirectPath?: string) => {
     const provider = new fire.auth.GoogleAuthProvider();
 
-    auth.signInWithPopup(provider).then(async result => {
+    await auth.signInWithPopup(provider).then(async result => {
         if (result.additionalUserInfo.isNewUser) {
             await createUser(result.user);
         }
-
-        await Router.push('/phase/problem');
-
-    })
+        if (redirectPath) {
+            await Router.push(redirectPath);
+        }
+    });
 };
 
 export const signOut = async () => {
     await auth.signOut();
-    await Router.push('/');
 };

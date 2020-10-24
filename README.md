@@ -30,13 +30,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## TODO
-* Redirect to login if no active session - Kristian
-* Redirect to phase view upon login - Kristian
-* Landing page with login - Kenneth
+* Redirect to login if no active session - COMPLETED
+* Redirect to phase view upon login - COMPLETED
+* Landing page with login - COMPLETED
 * Calculate chance of success upon opening app - Kenneth/Kristian
 * Increment/decrement success chance upon answer changed - Kenneth
-* Integrate links into best practice text - ?
-* Logout button - ?
+* Integrate links into best practice text - COMPLETED
+* Logout button - COMPLTETED
 * Login and usage metrics from users
 
 ## Bugs

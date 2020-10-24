@@ -6,6 +6,11 @@ import {UserContext} from '../utils/UserProvider';
 import {PerigeeLogo} from "./PerigeeLogo";
 import {useEffect} from "react";
 import {hotjar} from "react-hotjar";
+<<<<<<< HEAD
+=======
+import {signOut} from "../utils/auth";
+import Router from "next/router";
+>>>>>>> fe6b1b91e5673593ce0cad64b61daed87973f161
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
     companyEvaluation: 0,
@@ -33,6 +38,12 @@ export const Layout: React.FC = ({children}) => {
         computeCompanyEvaluation,
     } = useCompanyMetrics();
 
+    let onLogOut = async () => {
+
+        await signOut();
+    };
+
+
     return (
         <CompanyMetricContext.Provider
             value={{chanceOfSuccess, computeChanceOfSuccess, companyEvaluation, computeCompanyEvaluation}}>
@@ -40,40 +51,12 @@ export const Layout: React.FC = ({children}) => {
                 <div className={"logo"}>
                     <PerigeeLogo/>
                 </div>
-                <div className={"userMenu"} >
-                    <h3>Welcome back{user && `, ${user.name}`}!</h3>
-                </div>
+                {user && <div className={"userMenu"}>
+                    <p>Welcome back {user.name}!</p>
+                    <a onClick={onLogOut}>Log out</a>
+                </div>}
             </div>
             <div className={"container"}>
-                {/*<div className={"headerMenu"}>*/}
-                {/*    <div className={"companyName"}><h1>{companyName}</h1></div>*/}
-                {/*    {user && <div className={"companyName"}><h2>Welcome back, {user.name}</h2></div>}*/}
-                {/*    <div className={"companyMetrics"}>*/}
-                {/*        <div className={"companyEvaluation"}>Company valuation: {companyEvaluation} NOK</div>*/}
-                {/*        <div className={"companySuccessRate"}>Your chance of success: {chanceOfSuccess} %</div>*/}
-                {/*    </div>*/}
-                {/*    <br/>*/}
-                {/*    <div className={"phases"}>*/}
-                {/*        <Link href={"/phase/problem"}>*/}
-                {/*            <div className={"phase"}>PROBLEM</div>*/}
-                {/*        </Link>*/}
-                {/*        <Link href={"/phase/team"}>*/}
-                {/*            <div className={"phase"}>TEAM</div>*/}
-                {/*        </Link>*/}
-                {/*        <Link href={"/phase/research"}>*/}
-                {/*            <div className={"phase"}>RESEARCH</div>*/}
-                {/*        </Link>*/}
-                {/*        <Link href={"/phase/develop"}>*/}
-                {/*            <div className={"phase"}>DEVELOP</div>*/}
-                {/*        </Link>*/}
-                {/*        <Link href={"/phase/launch"}>*/}
-                {/*            <div className={"phase"}>LAUNCH</div>*/}
-                {/*        </Link>*/}
-                {/*        <Link href={"/phase/scale"}>*/}
-                {/*            <div className={"phase"}>SCALE</div>*/}
-                {/*        </Link>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <br/>
                 {
                     children

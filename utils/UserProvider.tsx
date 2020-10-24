@@ -29,7 +29,6 @@ export const UserProvider = ({ children }) => {
 
       const today = new Date();
       const todayDate = today.toISOString().slice(0, 10);
-      const now = today.getTime();
 
       if (authUser) {
         if (!user?.sessions || !user?.sessions[todayDate]) {
