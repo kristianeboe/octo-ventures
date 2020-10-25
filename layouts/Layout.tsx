@@ -30,6 +30,7 @@ export const Layout: React.FC = ({children}) => {
     } = useCompanyMetrics();
 
     let onLogOut = async () => {
+        initializeChanceOfSuccess(10);
         await signOut();
     };
 
