@@ -43,9 +43,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     function formatBestPracticeDescription(description, urlList){
         let descArr = description.split(/\[(.*?)\]/);
         let returnHTML = [];
+        let linkIndex = 0;
         for(let i = 0; i < descArr.length; i++){
             if(i % 2 != 0){
-                returnHTML.push(<a key={i} className="best_practice_link" target="_blank" href={urlList[i]}>{descArr[i]}</a>);
+                returnHTML.push(<a key={i} className="best_practice_link" target="_blank" href={urlList[linkIndex]}>{descArr[i]}</a>);
+                linkIndex++;
             }else{
                 returnHTML.push(<span key={i}>{descArr[i]}</span>);
             }
@@ -78,7 +80,6 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
                 <div className={"bestPracticeContainer"}>
                     <h3>Best practice resources</h3>
                     <div className={"bestPracticeDescription"}>{formatBestPracticeDescription(step.bestPractice.description, step.bestPractice.urls)}</div>
-                    {step.bestPractice.urls.map((url, id) => <div className={"bestPracticeLink"} key={id}><a href={url} target={"_blank"}>{url}</a></div>)}
                 </div>
             }
         </div>

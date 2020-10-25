@@ -5,7 +5,7 @@ import {PhaseContext} from "../../utils/PhaseProvider";
 
 export default function Scale () {
 
-    const phaseId = "01f9c4bc-f55a-403c-8154-9e1b239315c1";
+    const phaseId = "2fea5173-cb53-41ad-912d-025c7954b1ad";
 
     const {phases} = useContext(PhaseContext);
 

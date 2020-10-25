@@ -61,9 +61,9 @@ export default function Home() {
 
 
 
-        {/* <button onClick={populateDB}>
-    Populate
-  </button> */}
+  {/*       <button onClick={populateDB}>*/}
+  {/*  Populate*/}
+  {/*</button>*/}
 
     </div>;
 }
