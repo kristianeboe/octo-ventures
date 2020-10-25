@@ -24,7 +24,6 @@ export const TextFormInput: React.FC<{
 
 
   function handleChange(event) {
-    console.log("handle lunsj");
     const newAnswer = event.target.value;
     setInputText(newAnswer);
     if (newAnswer.length > 0) {

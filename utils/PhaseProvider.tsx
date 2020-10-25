@@ -15,7 +15,6 @@ export const PhaseProvider = ({children}) => {
 
     useEffect(() => {
         firestore.collection('phases').get().then(snapshot => {
-            console.log('loading phases');
             const p = {};
             snapshot.forEach(doc => {
                 const data = doc.data();
@@ -26,7 +25,6 @@ export const PhaseProvider = ({children}) => {
     }, []);
 
     useEffect(() => {
-        console.log("Breakpoint please");
         if (phases) {
             let scoreDelta = 0;
             Object.values(phases).forEach(phase => {
