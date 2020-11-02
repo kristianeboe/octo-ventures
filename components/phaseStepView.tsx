@@ -1,4 +1,5 @@
 import React, {useContext, useState} from "react";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import {PhaseStep} from "../utils/interfaces";
 import {CompanyMetricContext} from "../layouts/Layout";
 import {BooleanFormInput} from "./BooleanFormInput";
@@ -34,27 +35,6 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
         }
     }
 
-    /*
-        Takes a description and a list of URL's.
-        The description needs to have square brackets where the links should be.
-        The first instance of a text wrapped in [] will transform to a link text with the first url in the list.
-        This continues for each occurrence where the occurrence number matches the index of the url in the list.
-    */
-    function formatBestPracticeDescription(description, urlList){
-        let descArr = description.split(/\[(.*?)\]/);
-        let returnHTML = [];
-        let linkIndex = 0;
-        for(let i = 0; i < descArr.length; i++){
-            if(i % 2 != 0){
-                returnHTML.push(<a key={i} className="best_practice_link" target="_blank" href={urlList[linkIndex]}>{descArr[i]}</a>);
-                linkIndex++;
-            }else{
-                returnHTML.push(<span key={i}>{descArr[i]}</span>);
-            }
-        }
-        return returnHTML;
-    }
-
     function getFormInput() {
         switch (step.answerType) {
             case "BOOLEAN":
@@ -79,7 +59,7 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
             {step.bestPractice &&
                 <div className={"bestPracticeContainer"}>
                     <h3>Best practice resources</h3>
-                    <div className={"bestPracticeDescription"}>{formatBestPracticeDescription(step.bestPractice.description, step.bestPractice.urls)}</div>
+                    <div className={"bestPracticeDescription"}>{ReactHtmlParser(step.bestPractice.description)}</div>
                 </div>
             }
         </div>
