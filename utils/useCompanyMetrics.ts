@@ -7,7 +7,7 @@ interface CompanyMetrics {
 }
 
 export const useCompanyMetrics = (): CompanyMetricsContextProps => {
-    let [chanceOfSuccess, setChanceOfSuccess] = useState(10);
+    let [chanceOfSuccess, setChanceOfSuccess] = useState(0);
     let [companyEvaluation, setCompanyEvaluation] = useState(0);
 
     const computeChanceOfSuccess = (delta: number) => {

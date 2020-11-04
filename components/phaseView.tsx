@@ -27,7 +27,6 @@ export const PhaseView: React.FC<{
                     <div className={"companySuccessRate"}>Estimated chance of success: {chanceOfSuccess} %</div>
                 </div>
             </div>
-            <div className={"phaseMotivation"}><p>{phase.motivation}</p></div>
 
             {Object.values(phase.steps).sort((a,b) => a.order - b.order).map((step, index) => <PhaseStepView step={step} key={index} />)}
         </div>

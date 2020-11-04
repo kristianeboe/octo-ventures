@@ -3,11 +3,11 @@ export interface Phases {
 }
 
 export interface Phase {
-    type: 'Problem' | 'Team' | 'Research' | 'Develop' | 'Launch' | 'Scale',
-    motivation: string,
+    // type: 'Problem' | 'Team' | 'Research' | 'Develop' | 'Launch' | 'Scale',
     steps: PhaseStep[],
     id: string,
-    name: string
+    name: string,
+    order: number
 }
 
 export interface PhaseStep {

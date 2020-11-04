@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
 import {PhaseStep} from "../utils/interfaces";
 import {CompanyMetricContext} from "../layouts/Layout";
 import {BooleanFormInput} from "./BooleanFormInput";
@@ -8,7 +8,7 @@ import {MultipleChoiceFormInput} from "./MultipleChoiceFormInput";
 import {UserContext} from "../utils/UserProvider";
 
 
-export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
+export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
 
     const {computeChanceOfSuccess} = useContext(CompanyMetricContext);
     const [metricsComputed, setMetricsComputed] = useState<boolean>(false);
@@ -26,11 +26,11 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     }
 
     function handleAnswerUpdated(validAnswer: boolean) {
-        if(validAnswer) {
+        if (validAnswer) {
             if (!metricsComputed) {
                 makeComputation();
             }
-        } else if (metricsComputed){
+        } else if (metricsComputed) {
             reverseComputation();
         }
     }
@@ -38,11 +38,13 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
     function getFormInput() {
         switch (step.answerType) {
             case "BOOLEAN":
-                return <BooleanFormInput stepId={step.id} answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>;
+                return <BooleanFormInput stepId={step.id} answers={step.answers}
+                                         onAnswerUpdated={handleAnswerUpdated}/>;
             case "TEXT":
-                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id} />;
+                return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
             case "MULTI":
-                return <MultipleChoiceFormInput stepId={step.id} answers={step.answers} onAnswerUpdated={handleAnswerUpdated}/>
+                return <MultipleChoiceFormInput stepId={step.id} answers={step.answers}
+                                                onAnswerUpdated={handleAnswerUpdated}/>;
             default:
                 return <TextFormInput onAnswerUpdated={handleAnswerUpdated} stepId={step.id}/>;
         }
@@ -55,12 +57,15 @@ export const PhaseStepView: React.FC<{step: PhaseStep}> = ({step}) => {
                 {user && <form>
                     {getFormInput()}
                 </form>}
+                {step.answerType == "TEXT" &&
+                <p><i>*Filling out free text fields automatically increase estimated chance of success, but note that the
+                    answers will need to be validated by Perigee.</i></p>
+                }
             </div>
             {step.bestPractice &&
-                <div className={"bestPracticeContainer"}>
-                    <h3>Best practice resources</h3>
-                    <div className={"bestPracticeDescription"}>{ReactHtmlParser(step.bestPractice.description)}</div>
-                </div>
+            <div className={"bestPracticeContainer"}>
+                <div className={"bestPracticeDescription"}>{ReactHtmlParser(step.bestPractice.description)}</div>
+            </div>
             }
         </div>
     );

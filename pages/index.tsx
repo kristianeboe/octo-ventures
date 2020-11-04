@@ -46,9 +46,9 @@ export default function Home() {
                 <h1>90% of start-ups fail. Make sure yours don't.</h1>
                 <h3>Perigee is the software designed to help entrepreneurs boost their chance of success and drive company value creation.</h3>
                 <div>
-                    <p>Test your company's chance of success</p>
-                    <p>Understand the critical success factors in every step of your start-up's journey</p>
-                    <p>Improve your chance of success with the help of best practice methodologies and tools</p>
+                    <div><span className={"salesPitchBullet"}>-</span>Test your company's chance of success</div>
+                    <div><span className={"salesPitchBullet"}>-</span>Understand the critical success factors in every step of your start-up's journey</div>
+                    <div><span className={"salesPitchBullet"}>-</span>Improve your chance of success with the help of best practice methodologies and tools</div>
                 </div>
                 <div className={"getStarted"}>
                     <button className={"getStartedButton"} onClick={onClick}>

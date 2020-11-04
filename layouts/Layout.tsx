@@ -7,7 +7,7 @@ import {hotjar} from "react-hotjar";
 import {signOut} from "../utils/auth";
 
 export const CompanyMetricContext = React.createContext<CompanyMetricsContextProps>({
-    chanceOfSuccess: 10,
+    chanceOfSuccess: 0,
     computeChanceOfSuccess: () => {
     },
     initializeChanceOfSuccess: () =>{}
@@ -30,7 +30,7 @@ export const Layout: React.FC = ({children}) => {
     } = useCompanyMetrics();
 
     let onLogOut = async () => {
-        initializeChanceOfSuccess(10);
+        initializeChanceOfSuccess(0);
         await signOut();
     };
 

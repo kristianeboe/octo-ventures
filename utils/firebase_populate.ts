@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { firestore } from '../config/firebase';
+import {Phase} from "./interfaces";
+import { scalePhase } from "../data/scaleSteps";
 
 const p = {
     "Problem": [
@@ -918,6 +920,13 @@ const p = {
     ]
 };
 
+const phases = [scalePhase];
+
+export function migrateDB() {
+    phases.forEach(phase => {
+        firestore.collection("phases").doc(phase.id).set({...phase});
+    });
+}
 
 export  function populateDB() {
     let steps = {};
