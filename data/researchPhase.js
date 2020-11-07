@@ -1,4 +1,4 @@
-var researchSteps = [
+var researchPhase = [
     {
         "question": "Does your team understand what the customers' want to achieve?",
         "answerType": "BOOLEAN",

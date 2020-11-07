@@ -1,4 +1,4 @@
-var problemSteps = [
+var problemPhase = [
 
     {
         "question": "What is the problem you aim to solve?",

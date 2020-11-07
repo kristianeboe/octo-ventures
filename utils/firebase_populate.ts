@@ -1,7 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
-import { firestore } from '../config/firebase';
-import {Phase} from "./interfaces";
-import { scalePhase } from "../data/scaleSteps";
+import {v4 as uuidv4} from 'uuid';
+import {firestore} from '../config/firebase';
+import {scalePhase} from "../data/scalePhase";
 
 const p = {
     "Problem": [

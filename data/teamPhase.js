@@ -1,4 +1,4 @@
-var teamSteps = [
+var teamPhase = [
     {
         "question": "What are the principles for decision making in your team?",
         "answerType": "MULTI",

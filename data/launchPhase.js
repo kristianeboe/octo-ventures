@@ -1,4 +1,4 @@
-var launchSteps = [
+var launchPhase = [
 
     {
         "question": "Has your team analyzed operational risks and prepared mitigating actions?",
