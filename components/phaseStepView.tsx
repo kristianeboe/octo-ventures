@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 import {PhaseStep} from "../utils/interfaces";
 import {CompanyMetricContext} from "../layouts/Layout";
 import {BooleanFormInput} from "./BooleanFormInput";
@@ -64,7 +64,7 @@ export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
             </div>
             {step.bestPractice &&
             <div className={"bestPracticeContainer"}>
-                <div className={"bestPracticeDescription"}>{ReactHtmlParser(step.bestPractice.description)}</div>
+                <div className={"bestPracticeDescription"}>{ReactHtmlParser(step.bestPractice)}</div>
             </div>
             }
         </div>

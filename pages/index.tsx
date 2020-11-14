@@ -1,10 +1,7 @@
-import React, {useEffect, useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import Router from "next/router";
-import {auth} from '../config/firebase';
-import fire from '../config/firebase';
 import {signInWithGoogle, signOut} from '../utils/auth';
 import {UserContext} from '../utils/UserProvider';
-import {populateDB} from "../utils/firebase_populate";
 import {WorkshopPhoto} from "../layouts/WorkshopPhoto";
 
 
@@ -61,8 +58,12 @@ export default function Home() {
 
 
 
-  {/*       <button onClick={populateDB}>*/}
+  {/*       <button onClick={migrateDB}>*/}
   {/*  Populate*/}
+  {/*</button>*/}
+
+  {/*       <button onClick={countTotalPoints()}>*/}
+  {/*  count*/}
   {/*</button>*/}
 
     </div>;
