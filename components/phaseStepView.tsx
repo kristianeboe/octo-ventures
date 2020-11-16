@@ -19,7 +19,7 @@ export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
         } else if (step.answerType === "BOOLEAN") {
             return !!step.answers.find((ans) => ans.value === user.answers[step.id] && ans.required)
         } else if (step.answerType === "TEXT") {
-            return user.answers[step.id].length > 0;
+            return user.answers[step.id]?.length > 0;
         }
         return false
     };
