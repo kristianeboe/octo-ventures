@@ -8,7 +8,7 @@ export const problemPhase =
     {
         "id": "4f7c84ec-e09d-41ce-bc2f-f14fb5c99665",
         "question": "What is the problem you aim to solve?",
-        "answerType": "TEXT ",
+        "answerType": "TEXT",
         "scoringFunction": {
             "companyValueIncrement": 0,
             "companySuccessRateIncrement": 1

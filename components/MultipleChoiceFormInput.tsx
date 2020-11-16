@@ -1,16 +1,13 @@
-import {Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup} from "@material-ui/core";
-import React, {useEffect, useState} from "react";
+import {Checkbox, FormControl, FormControlLabel, FormGroup} from "@material-ui/core";
+import React, {useContext, useState} from "react";
 import {Answer} from "../utils/interfaces";
-import { UserContext } from '../utils/UserProvider';
-import { useContext } from 'react';
-import { firestore } from '../config/firebase';
+import {UserContext} from '../utils/UserProvider';
+import {firestore} from '../config/firebase';
 
 export const MultipleChoiceFormInput: React.FC<{ answers: Answer[], onAnswerUpdated: (boolean) => void, initialValues?: any , stepId: string}> = ({answers, onAnswerUpdated, stepId}) => {
     const { user, firebaseUser } = useContext(UserContext);
-    const initialValue = user?.answers[stepId] || [] 
-  
-    
-    const [state, setState] = React.useState(answers.reduce((map, obj, idx)=>(map[obj.value] = user?.answers[stepId]?.find((val) => val === obj.value) || false, map),{}));
+
+    const [state, setState] = useState(answers.reduce((map, obj, idx)=>(map[obj.value] = user?.answers[stepId]?.find((val) => val === obj.value) || false, map),{}));
 
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });

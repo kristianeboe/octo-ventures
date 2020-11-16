@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ReactHtmlParser from 'react-html-parser';
 import {PhaseStep} from "../utils/interfaces";
 import {CompanyMetricContext} from "../layouts/Layout";
@@ -11,9 +11,25 @@ import {UserContext} from "../utils/UserProvider";
 export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
 
     const {computeChanceOfSuccess} = useContext(CompanyMetricContext);
-    const [metricsComputed, setMetricsComputed] = useState<boolean>(false);
-
     const {user, firebaseUser} = useContext(UserContext);
+
+    const isInitiallyAnsweredCorrectly = () => {
+        if (step.answerType === "MULTI") {
+            return JSON.stringify(user.answers[step.id].sort()) == JSON.stringify(step.answers.filter(ans => ans.required).map(ans=>ans.value).sort())
+        } else if (step.answerType === "BOOLEAN") {
+            return !!step.answers.find((ans) => ans.value === user.answers[step.id] && ans.required)
+        } else if (step.answerType === "TEXT") {
+            return user.answers[step.id].length > 0;
+        }
+        return false
+    };
+
+    const [metricsComputed, setMetricsComputed] = useState<boolean>(false);
+    useEffect(() => {
+        const initiallyAnsweredCorrectly = isInitiallyAnsweredCorrectly();
+        setMetricsComputed(initiallyAnsweredCorrectly);
+    }, []);
+    console.log(user);
 
     function makeComputation() {
         computeChanceOfSuccess(step.scoringFunction.companySuccessRateIncrement);
@@ -54,7 +70,7 @@ export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
         <div className={"phaseStepContainer"}>
             <div className={"questionContainer"}>
                 <h3>{step.question}</h3>
-                {user && <form>
+                {user && <form onSubmit={(event => {event.preventDefault()})}>
                     {getFormInput()}
                 </form>}
                 {step.answerType == "TEXT" &&
