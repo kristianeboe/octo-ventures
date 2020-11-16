@@ -15,7 +15,7 @@ export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
 
     const isInitiallyAnsweredCorrectly = () => {
         if (step.answerType === "MULTI") {
-            return JSON.stringify(user.answers[step.id].sort()) == JSON.stringify(step.answers.filter(ans => ans.required).map(ans=>ans.value).sort())
+            return user.answers[step.id] && JSON.stringify(user.answers[step.id]?.sort()) == JSON.stringify(step.answers.filter(ans => ans.required).map(ans=>ans.value).sort())
         } else if (step.answerType === "BOOLEAN") {
             return !!step.answers.find((ans) => ans.value === user.answers[step.id] && ans.required)
         } else if (step.answerType === "TEXT") {
