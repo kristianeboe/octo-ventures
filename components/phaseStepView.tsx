@@ -29,7 +29,6 @@ export const PhaseStepView: React.FC<{ step: PhaseStep }> = ({step}) => {
         const initiallyAnsweredCorrectly = isInitiallyAnsweredCorrectly();
         setMetricsComputed(initiallyAnsweredCorrectly);
     }, []);
-    console.log(user);
 
     function makeComputation() {
         computeChanceOfSuccess(step.scoringFunction.companySuccessRateIncrement);
